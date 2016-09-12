@@ -6,7 +6,7 @@ Created on Sun Sep 11 20:44:26 EDT 2016
 
 Script to run parsing of multiple csv files and write out to one file.
 
-CURRENT STATUS- parsing the field with name and address.
+CURRENT STATUS- script incomplete. parsing the field with name and address.
 """
 
 import csv
