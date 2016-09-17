@@ -13,7 +13,7 @@ from datetime import datetime
 
 
 class Person:
-    #seperate a row from the voter csv file into its components
+    # seperate a row from the voter csv file into its components
     def __init__(self, voter):
         if voter is None:
             voter = []
@@ -34,13 +34,20 @@ class Person:
 
     @property
     def first_name(voter):
-        street_num = ([s for s in voter[0].split(',')[1].split() if s.isdigit()][0])
+        street_num = ([s for s in voter[0].split(',')[1].split() if
+                      s.isdigit()][0])
         return voter[0].split(',')[1].split(street_num)[0]
 
     @property
     def address(voter):
-        street_num = ([s for s in voter[0].split(',')[1].split() if s.isdigit()][0])
-        return (street_num + (voter[0].split(',')[1].split(street_num)[1]))
+        street_num = ([s for s in voter[0].split(',')[1].split() if
+                      s.isdigit()][0])
+        if len(voter[0].split(',')[1].split(street_num)) == 2:
+            return (street_num + (voter[0].split(',')[1].split(street_num)[1]))
+        else:
+            return (street_num +
+                    (voter[0].split(',')[1].split(street_num)[1]) +
+                    street_num + (voter[0].split(',')[1].split(street_num)[2]))
 
     @property
     def zip_code(voter):
